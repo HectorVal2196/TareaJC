@@ -1,12 +1,17 @@
-const txtNombre = document.getElementById("insertaNombre")
+const txtNombre = document.getElementById("insertaNombre");
 const btnGuardarNombre = document.getElementById("btnGuardar");
 
-    btnGuardarNombre.addEventListener("click", function(event){
-        event.preventDefault();
-        txtNombre.value = txtNombre.value.trim()
-        localStorage.setItem( "nombre",insertaNombre.value)
+btnGuardarNombre.addEventListener("click", function(event) {
+    event.preventDefault();
 
-        if (insertaNombre.value){
-            localStorage.setItem("Nombre", insertaNombre.value)
-        }
-    });
+    // Eliminar espacios del input
+    const nombreLimpio = txtNombre.value.trim();
+
+    if (nombreLimpio) {
+        // Guardar en localStorage
+        localStorage.setItem("nombre", nombreLimpio);
+        console.log("Nombre guardado:", nombreLimpio);
+    } else {
+        console.log("No se ingresó un nombre válido.");
+    }
+});
